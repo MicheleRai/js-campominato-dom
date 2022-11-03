@@ -15,6 +15,7 @@ const eleBtnHelp = document.querySelector('#btn-help');
 const eleStartScreen = document.querySelector('.start-screen');
 const eleGrid = document.querySelector('.grid');
 
+let x = 0;
 
 eleBtnPlay.addEventListener('click', function () {
 
@@ -58,6 +59,7 @@ eleBtnPlay.addEventListener('click', function () {
 	}
 });
 
+
 eleBtnHelp.addEventListener('click', function () {
 	if (eleBtnHelp.dataset.function == 'show-help') {
 		eleBtnHelp.innerHTML = 'Back to game';
@@ -78,9 +80,12 @@ function getRandomInteger(min, max) {
 
 function toggleCell() {
 	this.classList.toggle('active');
+	x++;
+	console.log('Il tuo punteggio:' + x);
 }
 
 function toggleCellBomb() {
 	this.classList.toggle('bomb');
+	console.log('HAI PERSO');
 	eleBtnPlay.removeEventListener('click', toggleCellBomb);
 }
