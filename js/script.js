@@ -30,17 +30,6 @@ eleBtnPlay.addEventListener('click', function () {
 	const sideSquare = Math.sqrt(nCells);
 	eleGrid.style.setProperty('--sideSquare', sideSquare);
 
-	for (let i = 1; i <= nCells; i++) {
-
-		const eleCell = document.createElement('div');
-		eleCell.classList.add('cell');
-		eleCell.innerHTML = i;
-		
-		eleGrid.append(eleCell);
-
-		eleCell.addEventListener('click', toggleCell);
-	}
-
 	let i = 1
 	do {
 		let randomNumber;
@@ -52,6 +41,21 @@ eleBtnPlay.addEventListener('click', function () {
 	} while (i <= 16); 
 	console.log(arrBomba);
 
+	for (let i = 1; i <= nCells; i++) {
+
+		const eleCell = document.createElement('div');
+		eleCell.classList.add('cell');
+		eleCell.innerHTML = i;
+		
+		eleGrid.append(eleCell);
+
+		if (arrBomba.includes(i)) {
+			eleCell.addEventListener('click', toggleCellBomb);
+
+		} else {
+			eleCell.addEventListener('click', toggleCell);
+		}
+	}
 });
 
 eleBtnHelp.addEventListener('click', function () {
@@ -74,4 +78,7 @@ function getRandomInteger(min, max) {
 
 function toggleCell() {
 	this.classList.toggle('active');
+}
+function toggleCellBomb() {
+	this.classList.toggle('bomb');
 }

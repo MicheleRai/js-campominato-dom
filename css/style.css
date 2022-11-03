@@ -77,6 +77,10 @@ button, select{
 	background-color: rgb(136, 0, 255);
 }
 
+.cell.bomb {
+	background-color: rgb(255, 0, 0);
+}
+
 .hidden {
 	display: none;
 }
