@@ -15,15 +15,18 @@ const eleBtnHelp = document.querySelector('#btn-help');
 const eleStartScreen = document.querySelector('.start-screen');
 const eleGrid = document.querySelector('.grid');
 
+
 eleBtnPlay.addEventListener('click', function () {
 
 	eleGrid.innerHTML = '';
+	
+	const arrBomba = [];
 
 	eleGrid.classList.remove('hidden');
 	eleStartScreen.classList.add('hidden');
 
 	const nCells = parseInt(eleSelectLevel.value);
-
+	
 	const sideSquare = Math.sqrt(nCells);
 	eleGrid.style.setProperty('--sideSquare', sideSquare);
 
@@ -37,6 +40,18 @@ eleBtnPlay.addEventListener('click', function () {
 
 		eleCell.addEventListener('click', toggleCell);
 	}
+
+	let i = 1
+	do {
+		let randomNumber;
+		randomNumber = getRandomInteger(1, nCells);
+		if(!arrBomba.includes(randomNumber)){
+			i++;
+			arrBomba.push(randomNumber)
+		}
+	} while (i <= 16); 
+	console.log(arrBomba);
+
 });
 
 eleBtnHelp.addEventListener('click', function () {
@@ -53,6 +68,9 @@ eleBtnHelp.addEventListener('click', function () {
 	}
 });
 
+function getRandomInteger(min, max) {
+	return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
 
 function toggleCell() {
 	this.classList.toggle('active');
