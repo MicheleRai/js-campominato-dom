@@ -4,13 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CAMPO MINATO</title>
     <!-- style -->
     <link rel="stylesheet" href="css/style.css">
     <!-- script -->
     <script src="js/script.js" defer></script>
 </head>
 <body>
-    
+	<header>
+		<h1> <img src="img/BOOLEAN-icon.png" alt="BOOLEAN-icon"> CAMPO MINATO</h1>
+		<div class="controls">
+			<select name="level" id="select-level">
+				<option value="100">EASY</option>
+				<option value="81">NORMAL</option>
+				<option value="49">HARD</option>
+			</select>
+			<button id="btn-play">PLAY!</button>
+			<button id="btn-help" data-function="show-help">Show help</button>
+		</div>
+	</header>
+	<div class="container">
+		<div class="start-screen">
+			<h2>Benvenuto in campo minato, premi PLAY per giocare</h2>
+		</div>
+		<div class="grid hidden"></div>
+	</div>
 </body>
 </html>

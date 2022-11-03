@@ -1,5 +1,82 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+header{
+	height: 10vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+img{
+	height: 100%;
+}
+
+h1{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+form{
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+button, select{
+	font-size: 20px;
+	margin: 1rem;
+	padding: 0.5rem;
+	text-align: center;
+}
+
+.container {
+	display: flex;
+	height: 90vh;
+	background-color: black;
+}
+
+.start-screen {
+	margin: auto;
+	color: white;
+}
+
+.grid {
+	--sideSquare: 10;
+	display: flex;
+	flex-wrap: wrap;
+	margin: auto;
+	width: 500px;
+	height: 500px;
+	border: 2px solid white;
+	color: white;
+}
+
+.cell {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid rgb(255, 255, 255);
+	height: calc(100% / var(--sideSquare));
+	width: calc(100% / var(--sideSquare));
+}
+
+.cell.active {
+	background-color: rgb(136, 0, 255);
+}
+
+.hidden {
+	display: none;
 }
