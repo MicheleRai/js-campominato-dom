@@ -79,6 +79,8 @@ function getRandomInteger(min, max) {
 function toggleCell() {
 	this.classList.toggle('active');
 }
+
 function toggleCellBomb() {
 	this.classList.toggle('bomb');
+	eleBtnPlay.removeEventListener('click', toggleCellBomb);
 }
