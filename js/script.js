@@ -55,6 +55,7 @@ eleBtnPlay.addEventListener('click', function () {
 
 		} else {
 			eleCell.addEventListener('click', toggleCell);
+	
 		}
 	}
 });
@@ -74,6 +75,8 @@ eleBtnHelp.addEventListener('click', function () {
 	}
 });
 
+const nCells = parseInt(eleSelectLevel.value);
+
 function getRandomInteger(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
@@ -82,10 +85,19 @@ function toggleCell() {
 	this.classList.toggle('active');
 	x++;
 	console.log('Il tuo punteggio:' + x);
+	if(x == (nCells - 16)){
+		console.log('hai vinto');
+		alert('HAI VINTO');
+	}
 }
 
 function toggleCellBomb() {
 	this.classList.toggle('bomb');
 	console.log('HAI PERSO');
-	eleBtnPlay.removeEventListener('click', toggleCellBomb);
+	alert('HAI PERSO')
+	const celle = document.querySelectorAll('.cell')
+	for (let i = 0; i < celle.length; i++) {
+		celle[i].removeEventListener('click', toggleCellBomb);
+		celle[i].removeEventListener('click', toggleCell);
+	 }
 }
