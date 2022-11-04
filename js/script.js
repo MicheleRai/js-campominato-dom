@@ -15,13 +15,16 @@ const eleBtnHelp = document.querySelector('#btn-help');
 const eleStartScreen = document.querySelector('.start-screen');
 const eleGrid = document.querySelector('.grid');
 
-let x = 0;
+let x;
+let arrBomba;
 
 eleBtnPlay.addEventListener('click', function () {
 
 	eleGrid.innerHTML = '';
 	
-	const arrBomba = [];
+	x=0
+
+	arrBomba = [];
 
 	eleGrid.classList.remove('hidden');
 	eleStartScreen.classList.add('hidden');
@@ -83,18 +86,24 @@ function getRandomInteger(min, max) {
 
 function toggleCell() {
 	this.classList.toggle('active');
+	this.removeEventListener('click', toggleCell);
 	x++;
-	console.log('Il tuo punteggio:' + x);
 	if(x == (nCells - 16)){
 		console.log('hai vinto');
 		alert('HAI VINTO');
+		disableAllCell();
 	}
 }
 
 function toggleCellBomb() {
 	this.classList.toggle('bomb');
 	console.log('HAI PERSO');
+	console.log('Il tuo punteggio:' + x);
 	alert('HAI PERSO')
+	disableAllCell();
+}
+
+function disableAllCell () {
 	const celle = document.querySelectorAll('.cell')
 	for (let i = 0; i < celle.length; i++) {
 		celle[i].removeEventListener('click', toggleCellBomb);
